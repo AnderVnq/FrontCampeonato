@@ -1,0 +1,65 @@
+<div class="max-w-8xl mx-auto sticky z-auto top-0 bg-custom-black">
+    <div class="py-4 mx-4 border-b border-slate-900 lg:mx-2 ">
+      <div class=" flex items-center ">
+        <h1 class="hover:text-indigo-500 cursor-pointer py-2 ml-4 text-slate-300">
+          <a routerLink="" routerLinkActive="router-link-active"  class="no-underline text-3xl font-medium">Eventos CDR</a> 
+        </h1>
+        <div class="relative items-center ml-auto lg:flex hidden">
+          <nav class="text-sm leading-6 font-semibold text-slate-200">
+            <ul class=" flex space-x-8">
+              <li>  
+                <a routerLink="user" routerLinkActive="router-link-active"  class="hover:text-indigo-500 cursor-pointer">Campeonatos</a>
+              </li>
+              <li>
+                <a class="hover:text-indigo-500 cursor-pointer">Equipos</a>
+              </li>
+              <li>
+                <a class="hover:text-indigo-500 cursor-pointer">Jugadores</a>
+              </li>
+            </ul>
+  
+          </nav>
+          <div class="flex items-center border-l-2 border-slate-900 ml-6">
+            <div class=" rounded py-0.5 mx-6 flex items-center justify-center  cursor-pointer">
+                @if (usuario) {
+                  <div class="relative group inline-block">
+                    <button id="dropdownHoverButton" class="text-white bg-blue-700 hover:bg-blue-800
+                       font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" 
+                       type="button"
+                       (click)="view_menu()" 
+                       >
+                        {{usuario.username}}
+                      <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                      </svg>
+                    </button>
+                  
+                    <!-- Dropdown menu -->
+                    <div [ngClass]="{'hidden':open_menu===false}" class="absolute max-w-32  z-10 hidden bg-white divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                      <ul class="py-2 text-sm text-gray-700 max-w-10 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                        <li class="w-32">
+                          <a href="#" class="block px-2 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                        </li>
+                        <li class="w-32">
+                          <a href="#" class="block px-2 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                        </li>
+                        <li class="w-32">
+                          <a href="#" class="block px-2 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                        </li>
+                        <li class="w-32">
+                          <a href="#" class="block w-full px-2 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>                             
+                }@else {
+                  <span class="pr-2 block text-base font-medium cursor-pointer">
+                      Login
+                  </span>   
+                }
+            </div>
+          </div>
+        </div>
+      </div>    
+    </div>
+</div>
