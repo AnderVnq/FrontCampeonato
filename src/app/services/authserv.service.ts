@@ -8,26 +8,27 @@ export class AuthservService {
 
   isLogin=false
   usuario:UserInterface|null=null
-  usuarios:UserInterface[]=
-  [
-    {id:1,username:'anderson',password:'heaveny2',email:'ndrsnvenegas@gmail.com'},
-    {id:2,username:'gael',password:'heaveny2',email:'ndrsnvenegas@gmail.com'},
-    {id:3,username:'mathias',password:'heaveny2',email:'ndrsnvenegas@gmail.com'}
-  ]
+  usuarios:UserInterface[]=[]
 
+
+  logout(){
+    localStorage.clear()
+    window.location.href='/'
+  }
 
   get(){
     return [...this.usuarios]
   }
-  
+}
 
 
-  // create_user(data:any){
-  //   const current_user=this.usuarios.find(u=>u.username==data[0] && u.password==data[1])
-  //   if(current_user){
-  //     this.usuario=current_user
-  //     this.isLogin=true
-  //   }
-  // }
-  constructor() { }
+
+export class Login{
+  username:string
+  password:string
+
+  constructor(){
+    this.username=''
+    this.password=''
+  }
 }

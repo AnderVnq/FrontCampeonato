@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { AuthservService } from '../../services/authserv.service';
 import { UserInterface } from '../../interfaces/user-interface';
 import { CommonModule } from '@angular/common';
+import { DataServService } from '../../services/data-serv.service';
 
 @Component({
   selector: 'app-header',
@@ -12,18 +13,24 @@ import { CommonModule } from '@angular/common';
   styles: ``
 })
 export class HeaderComponent {
-  user_storage=localStorage.getItem('user')
-  usuario: UserInterface = this.user_storage ? JSON.parse(this.user_storage) : null;
-  token=localStorage.getItem('token')
+  private readonly _authserv = inject(AuthservService)
+  usuario!:UserInterface
+  
   open_menu=false
 
-  constructor(){
-    
+  constructor(private _dataservice:DataServService){
+    this.usuario = this._dataservice.getItemsFromLocalStorage()
+    if(this.usuario)this.usuario.img='https://github.com/AnderVnq.png'
+    console.log(this.usuario)
   }
 
   view_data(){
     //this.open_menu=true
     console.log(this.usuario)
+  }
+
+  logout(){
+    return this._authserv.logout()
   }
 
   view_menu(){
@@ -34,7 +41,5 @@ export class HeaderComponent {
       this.open_menu=false
     }
   }
-
-
 
 }

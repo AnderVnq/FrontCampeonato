@@ -1,19 +1,18 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthservService } from '../../services/authserv.service';
-import { Router } from '@angular/router';
-import { UserInterface } from '../../interfaces/user-interface';
+import { Router, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { DataServService } from '../../services/data-serv.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,RouterLink],
   templateUrl: './login.component.html',
   styles: ``
 })
 export class LoginComponent {
-  //private readonly _http =inject(HttpClient)
+  private readonly _data =inject(DataServService)
   login_object:Login
   procesando=false
 
@@ -24,22 +23,22 @@ export class LoginComponent {
   login(){
     this.procesando=true
     this.http.post('http://127.0.0.1:5000/login/',this.login_object).subscribe(
-      {
+    {
         next:(response:any)=>{
           console.log(response["refresh-token"])
           console.log(response.token)
           console.log(response.message)
           console.log(response.user)
           const user=JSON.stringify(response.user)
-          alert("succes")
+        alert("succes")
           console.log(user);
           
           localStorage.setItem('Auth_token',response.token)
           localStorage.setItem('Refresh-token',response["refresh-token"])
           localStorage.setItem('user',user)
           this.procesando=false
-          this.router.navigate(['/'])
-        },
+          window.location.href='/'
+      },
         error:(error)=>{
           console.log(error)
           this.procesando=false
@@ -53,7 +52,7 @@ export class LoginComponent {
     )
   }
 }
-
+      
 
 
 

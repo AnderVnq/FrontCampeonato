@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { UserComponent } from './components/user/user.component';
 import { NgOptimizedImage } from '@angular/common';
 import { CommentsComponent } from './components/comments/comments.component';
@@ -17,13 +17,14 @@ export class AppComponent {
   title = 'angular-campeonato';
   username="anderson"
 
-  on_mouse_over(user:string):void{
-    console.log(user)
-  }
+  // is_login!: boolean;
 
-  resive_emit($event:string):void{
-    //console.log($event)
-    this.username=$event
-  }
+  // constructor(private router: Router) {
+  //   this.router.events.subscribe(event => {
+  //     if (event instanceof NavigationEnd) {
+  //       this.is_login = event.url.includes('login');
+  //     }
+  //   });
+  // }
 
 }

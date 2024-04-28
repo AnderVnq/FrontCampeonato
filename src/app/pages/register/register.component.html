@@ -1,0 +1,75 @@
+<div class="bg-neutral-950 flex items-center justify-center py-1 sm:px-3 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md pt-4">
+        <img class="mx-auto h-20 w-auto" src="https://www.svgrepo.com/show/301692/login.svg" alt="Workflow">
+        <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-slate-300">
+            Crear Cuenta Nueva
+        </h2>
+        <p class="mt-2 text-center text-sm leading-5 text-gray-500 max-w">
+            O
+            <a routerLink="/login"
+                class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                ingresa con tu cuenta
+            </a>
+        </p>
+    </div>
+    <div class="mt-8 sm:mx-auto w-full sm:max-w-lg">
+        <div class="bg-white py-7 px-4 shadow sm:rounded-lg sm:px-10">
+            <form method="POST" [formGroup]="formGroup">
+                <div>
+                    <label for="nombre" class="block text-sm font-medium leading-5  text-gray-700">Nombre</label>
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <input id="nombre" name="nombre" placeholder="Nombre" type="text" required="" value="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <label for="Apellido" class="block text-sm font-medium leading-5  text-gray-700">Apellido</label>
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <input id="Apellido" name="Apellido" placeholder="Apellido" type="text" required="" value="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <label for="username" class="block text-sm font-medium leading-5 text-gray-700">Username</label>
+                    <div class="mt-1 flex rounded-md shadow-sm">
+                        <input id="username" name="username" placeholder="username" type="text" required="" value="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <label for="email" class="block text-sm font-medium leading-5  text-gray-700">
+                        Email
+                    </label>
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <input id="email" name="email" placeholder="user@example.com" type="email" required="" value="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <label for="password" class="block text-sm font-medium leading-5 text-gray-700">
+                        Password
+                    </label>
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <input id="password" placeholder="********" name="password" type="password" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <label for="password_confirmation" class="block text-sm font-medium leading-5 text-gray-700">
+                        Confirm Password
+                    </label>
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <input id="password_confirmation" placeholder="******" name="password_confirmation" type="password" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <span class="block w-full rounded-md shadow-sm">
+            <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+              Crear Cuenta
+            </button>
+          </span>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
