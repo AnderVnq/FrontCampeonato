@@ -38,25 +38,29 @@
                     <!-- Dropdown menu -->
                     <div [ngClass]="{'hidden':open_menu===false}" class="absolute max-w-28  z-10 hidden bg-white divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                       <ul class="py-2 text-sm text-gray-700 max-w-10 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-                        <li class="w-24">
-                          <a href="#" class="block px-2 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                        @if (usuario.is_delegado) {
+                          <li class="w-[112px]">
+                            <a href="#" class="flex justify-center px-2 py-2 hover:bg-indigo-700 hover:text-slate-200">Mi Equipo</a>
+                          </li>                          
+                        }
+                        <li class="w-[112px]">
+                          <a href="#" class="flex justify-center px-2 py-2 hover:bg-indigo-700 hover:text-slate-200">Settings</a>
                         </li>
-                        <li class="w-24">
-                          <a href="#" class="block px-2 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                        </li>
-                        <li class="w-24">
-                          <a href="#" class="block px-2 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                        </li>
-                        <li class="w-24">
-                          <button type="button" (click)="logout()"  class="block w-full px-2 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</button>
+                        @if (usuario.is_admin) {
+                          <li class="w-[112px]">
+                            <a href="#" class="flex justify-center w-full px-2 py-2 hover:bg-indigo-700 hover:text-slate-200 ">Dashboard</a>
+                          </li>
+                        }
+                        <li class="w-[112px]">
+                          <button type="button" (click)="logout()"  class="flex justify-center w-full px-2 py-2 hover:bg-indigo-700 hover:text-slate-200">Sign out</button>
                         </li>
                       </ul>
                     </div>
                   </div>                             
                 }@else {
-                  <a routerLink="/login" class="flex justify-center gap-2 bg-blue-600 hover:bg-blue-500 px-4 py-1 rounded-lg text-base font-medium cursor-pointer">
-                    <img src="assets/images/login-img.png" alt="" width="19" height="10" class="py-1">
-                    <span>Login</span>
+                  <a routerLink="/login" class="flex justify-center items-center gap-2 bg-blue-600 hover:bg-blue-500 px-4 py-1 rounded-lg text-base font-medium cursor-pointer">
+                    <img src="assets/images/login-img.png" alt="" width="19" height="10" class="">
+                    <span >Login</span>
                   </a>   
                 }
             </div>

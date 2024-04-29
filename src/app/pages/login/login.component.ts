@@ -12,11 +12,10 @@ import { DataServService } from '../../services/data-serv.service';
   styles: ``
 })
 export class LoginComponent {
-  private readonly _data =inject(DataServService)
   login_object:Login
   procesando=false
 
-  constructor(private http:HttpClient,private router: Router) {
+  constructor(private http:HttpClient) {
     this.login_object= new Login()
   }
 
@@ -30,7 +29,7 @@ export class LoginComponent {
           console.log(response.message)
           console.log(response.user)
           const user=JSON.stringify(response.user)
-        alert("succes")
+          alert("succes")
           console.log(user);
           
           localStorage.setItem('Auth_token',response.token)

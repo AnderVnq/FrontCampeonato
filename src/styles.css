@@ -8,3 +8,15 @@
 *{
     box-sizing: border-box;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.panel-error{
+    --mdc-snackbar-container-color: rgba(255, 0, 0, 0.748);
+    --mat-snack-bar-button-color: black;
+    --mdc-snackbar-supporting-text-color: white;
+}
+.panel-succes{
+  --mdc-snackbar-container-color: rgba(0, 255, 26, 0.846);
+  --mat-snack-bar-button-color: black;
+  --mdc-snackbar-supporting-text-color: white;
+}
