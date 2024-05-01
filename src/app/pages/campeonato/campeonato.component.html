@@ -41,7 +41,7 @@
         
         @for (equipo of equipos; track $index) {
             <div class="rounded-lg h-44 border border-blue-600  p-2">
-                <a class="h-full w-full hover:cursor-pointer">
+                <a  routerLink="/equipos/{{equipo.nombre}}/{{equipo.id}}" class="h-full w-full hover:cursor-pointer">
                     <!-- div imagen de fondo -->
                     <div class="team-card-content">
                         <div class="w-[60px]">

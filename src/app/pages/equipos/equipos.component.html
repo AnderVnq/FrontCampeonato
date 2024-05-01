@@ -1,1 +1,39 @@
-<p>equipos works!</p>
+<main>
+    <section class="mt-36 mb-10">
+        <div class="flex flex-col justify-center items-center">
+            
+            @if (equipo) {
+                
+                <h1 class="text-3xl text-slate-200 font-medium">{{equipo.nombre}}</h1>
+                <img class="rounded-lg" src="https://github.com/AnderVnq.png" alt="">
+                <h2>{{equipo.delegado}}</h2>
+            }
+            @else {
+                <h2>Error al traer data</h2>
+            }
+        </div>
+    </section>
+
+    <div class="flex justify-start ml-4 mr-4   text-indigo-600  mt-8 border-b">
+        <h2 class="py-3 text-2xl font-medium ml-8 mr-8">Plantilla</h2>
+    </div>
+    <section class="grid mt-10 grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-4 py-16 px-6">
+
+        @for (jugador of jugadores; track $index) {
+            <div class="rounded-lg h-44 border border-blue-600  p-2">
+                <div class="h-full w-full hover:cursor-pointer"></div>
+            </div>
+            
+        }
+        @empty {
+            <div class="h-full w-full flex justify-center items-center">
+                <div><h1>No hay datos para mostrar</h1> </div>
+                
+            </div>
+            <div class="h-full w-full flex justify-center items-center">
+                <h1>Error en la data</h1>
+            </div>
+        }
+    </section>
+
+</main>

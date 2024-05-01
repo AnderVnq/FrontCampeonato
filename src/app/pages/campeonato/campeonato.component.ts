@@ -1,12 +1,13 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CampeonatoServService } from '../../services/campeonato-serv.service';
 import { CampeonatoInterface } from '../../interfaces/campeonatos-interface';
+import { EquipoInterface } from '../../interfaces/equipo-interface';
 
 @Component({
   selector: 'app-campeonato',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './campeonato.component.html',
   styles: ``
 })
@@ -14,7 +15,7 @@ export class CampeonatoComponent implements OnInit {
   private readonly _campeonatoService=inject(CampeonatoServService)
   id_campeonato!:string
   campeonato!:CampeonatoInterface
-  equipos!:any[]
+  equipos!:EquipoInterface[]
   campeon=true
 
 
