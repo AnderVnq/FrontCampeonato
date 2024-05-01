@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AboutComponent } from '../../components/about/about.component';
 import { CampeonatoServService } from '../../services/campeonato-serv.service';
 import { RouterLink } from '@angular/router';
+import { CampeonatoInterface } from '../../interfaces/campeonatos-interface';
 
 
 @Component({
@@ -14,8 +15,39 @@ import { RouterLink } from '@angular/router';
 })
 export class HomeComponent {
   private readonly _CampeonatoService=inject(CampeonatoServService)
-  border=2
-  
-  campeonatos= this._CampeonatoService.get()
+  border=3
+  loading=false
+  campeonatos!:CampeonatoInterface[]
+
+
+  constructor(){this.get_campeonatos()}
+
+  get_campeonatos(){
+
+    console.log(this.loading)
+    this._CampeonatoService.get().subscribe(
+      {
+        next:(response)=>{
+          console.log(response)
+          this.campeonatos=response
+          
+        },
+        error:(error)=>{
+          console.log(error)
+        },
+        complete:()=>{
+          console.log("complete");
+          
+        },
+      }
+    )
+
+    setTimeout(() => {
+      this.loading=true
+      console.log(this.loading);
+      
+    },2000);
+    
+  }
 
 }

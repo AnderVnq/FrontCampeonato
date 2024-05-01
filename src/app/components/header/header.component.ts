@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AuthservService } from '../../services/authserv.service';
 import { UserInterface } from '../../interfaces/user-interface';
@@ -12,16 +12,16 @@ import { DataServService } from '../../services/data-serv.service';
   templateUrl: './header.component.html',
   styles: ``
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
   private readonly _authserv = inject(AuthservService)
   usuario!:UserInterface
   
   open_menu=false
 
   constructor(private _dataservice:DataServService){
-    this.usuario = this._dataservice.getItemsFromLocalStorage()
-    if(this.usuario)this.usuario.img='https://github.com/AnderVnq.png'
-    console.log(this.usuario)
+    // this.usuario = this._dataservice.getItemsFromLocalStorage()
+    // if(this.usuario)this.usuario.img='https://github.com/AnderVnq.png'
+    // console.log(this.usuario)
   }
 
   view_data(){
@@ -40,6 +40,13 @@ export class HeaderComponent {
     else{
       this.open_menu=false
     }
+  }
+  ngOnInit(): void {
+    
+    this.usuario = this._dataservice.getItemsFromLocalStorage()
+    if(this.usuario){this.usuario.img='https://github.com/AnderVnq.png'}
+    console.log(this.usuario)
+
   }
 
 }

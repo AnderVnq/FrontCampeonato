@@ -1,61 +1,41 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { CampeonatoInterface } from '../interfaces/campeonatos-interface';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CampeonatoServService {
+  private readonly _http =inject(HttpClient)
 
-  campeonatos:CampeonatoInterface[]=[
-    {
-      id:10,
-      nombre:'campeonato invierno 2024',
-      fecha_inicio:new Date('2024-12-12'),
-      fecha_fin:new Date('2024-12-12'),
-      tipo:'libre',
-      lugar:'complejo deportivo ramon castilla',
-      campeon:'ramon castilla'
-    },
-    {
-      id:22,
-      nombre:'campeonato verano 2025',
-      fecha_inicio:new Date('2024-12-12'),
-      fecha_fin:new Date('2024-12-12'),
-      tipo:'libre',
-      lugar:'complejo deportivo ramon castilla',
-      campeon:''
-    },
-    {
-      id:30,
-      nombre:'campeonato invierno 2025',
-      fecha_inicio:new Date('2024-12-12'),
-      fecha_fin:new Date('2024-12-12'),
-      tipo:'libre',
-      lugar:'complejo deportivo ramon castilla'
-    },
-    {
-      id:40,
-      nombre:'campeonato invierno 2025',
-      fecha_inicio:new Date('2024-12-12'),
-      fecha_fin:new Date('2024-12-12'),
-      tipo:'libre',
-      lugar:'complejo deportivo ramon castilla'
-    },
-    {
-      id:5,
-      nombre:'campeonato invierno 2025',
-      fecha_inicio:new Date('2024-12-12'),
-      fecha_fin:new Date('2024-12-12'),
-      tipo:'libre',
-      lugar:'complejo deportivo ramon castilla'
-    },
-  ]
+  constructor(){}
+  
 
-
-
-
-  get(){
-    return [...this.campeonatos]
+  get():Observable<CampeonatoInterface[]>{
+    return this._http.get<CampeonatoInterface[]>('http://127.0.0.1:5000/campeonatos/');
   }
-  constructor() { }
+
+
+  get_by_id(id:number){
+    return this._http.get(`http://127.0.0.1:5000/campeonatos/${id}`)
+  }
+
+  create(campeonato:CampeonatoInterface){
+    return this._http.post('http://127.0.0.1:5000/campeonatos/',campeonato)
+  }
+
+  update(id:number,campeonato:CampeonatoInterface){
+    return this._http.put(`http://127.0.0.1:5000/campeonatos/${id}`,campeonato)
+  }
+
+  delete(id:number){
+    return this._http.delete(`http://127.0.0.1:5000/campeonatos/${id}`)
+  }
+
+
+  get_participantes_campeonato(id:number){
+    return this._http.get(`http://127.0.0.1:5000/campeonatos/${id}/equipos_participantes/`)
+  }
+
 }

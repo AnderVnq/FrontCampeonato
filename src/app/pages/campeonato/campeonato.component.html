@@ -1,0 +1,70 @@
+<main class="mx-16 mt-32" >
+    <div class="grid grid-cols-1  md:flex md:gap-40 md:items-center md:justify-around">
+        @if (campeonato) {
+            <div class="flex flex-col gap-y-7  md:flex-row  md:flex md:items-center ">
+                
+                <div class="flex flex-col mx-5 gap-2">
+                    <h1 class="text-3xl mb-4 border-b-[1px] pr-8 text-slate-300">{{campeonato.nombre}}</h1>
+                    <h2 class="text-indigo-500 font-medium ml-4"><span class="text-slate-300 text-lg">Inicio :</span>  {{campeonato.fecha_inicio}}📅</h2>
+                    <h2 class="text-indigo-500 font-medium ml-4"><span class="text-slate-300 text-lg">Fin : </span>{{campeonato.fecha_inicio}}📅</h2>
+                    <h2 class="text-indigo-500 font-medium ml-4"><span class="text-slate-300 text-lg">Categoria : </span>{{campeonato.tipo}}</h2>
+                    <h2 class="text-indigo-500 font-medium ml-4"><span class="text-slate-300 text-lg">Lugar : </span>{{campeonato.lugar}}</h2>
+                </div>
+                @if (campeon) {
+                    <div class="relative bg-gradient-to-r from-green-400 to-green-600 rounded-lg shadow-md p-3">
+                        <a href="#" class="absolute inset-0 rounded-lg" style="z-index: -1;"></a>
+                        <h1 class="text-base px-2 text-white font-bold transition duration-300 ease-in-out hover:text-indigo-600 hover:cursor-pointer">🏆 Nombre del Campeón 🏆</h1>
+                    </div>
+                }                
+            </div>
+            <div class="flex items-center justify-center mt-10 md:mt-0">
+                <img class="rounded-lg" src="assets/images/campeonato-img.jpeg" alt="">
+            </div>
+        }
+        @else {
+            <div>
+                <h1 class="text-3xl text-slate-300">Error al cargar campeonato</h1>
+                <div>
+                    <h2></h2>
+                </div>
+            </div>
+            <div>
+                <img class="rounded-lg" src="assets/images/campeonato-img.jpeg" alt="">
+            </div>            
+        }
+
+
+    </div>
+
+
+    <section class="grid mt-10 grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-4 py-16 px-6">
+        
+        @for (equipo of equipos; track $index) {
+            <div class="rounded-lg h-44 border border-blue-600  p-2">
+                <a class="h-full w-full hover:cursor-pointer">
+                    <!-- div imagen de fondo -->
+                    <div class="team-card-content">
+                        <div class="w-[60px]">
+                            <img class="rounded-lg" src="assets/images/campeonato-img.jpeg" alt="">
+                        </div>
+                        <div class="ml-6 max-w-96 ">
+                            <img class="max-h-[160px]" src="https://github.com/AnderVnq.png"  alt="" srcset="">
+                        </div>
+                        <div class="flex flex-col items-start mx-4 mt-10 justify-center">
+                            <h3 class="text-slate-300">{{equipo.nombre}}</h3>
+                            <p class="text-slate-400">{{equipo.delegado}}</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        }
+
+
+    </section>
+
+
+
+
+
+</main>

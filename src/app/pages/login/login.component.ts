@@ -1,8 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { DataServService } from '../../services/data-serv.service';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +28,6 @@ export class LoginComponent {
           console.log(response.message)
           console.log(response.user)
           const user=JSON.stringify(response.user)
-          alert("succes")
           console.log(user);
           
           localStorage.setItem('Auth_token',response.token)
