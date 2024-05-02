@@ -1,12 +1,13 @@
 <main>
-    <section class="mt-36 mb-10">
+    <section class="mt-32 mb-10">
         <div class="flex flex-col justify-center items-center">
             
             @if (equipo) {
                 
                 <h1 class="text-3xl text-slate-200 font-medium">{{equipo.nombre}}</h1>
                 <img class="rounded-lg" src="https://github.com/AnderVnq.png" alt="">
-                <h2>{{equipo.delegado}}</h2>
+                <h2 class="text-xl font-bold text-blue-600 bg-gray-200 py-1 mt-2 px-2 rounded shadow-lg">{{ equipo.delegado }}</h2>
+
             }
             @else {
                 <h2>Error al traer data</h2>
@@ -20,8 +21,43 @@
     <section class="grid mt-10 grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-4 py-16 px-6">
 
         @for (jugador of jugadores; track $index) {
-            <div class="rounded-lg h-44 border border-blue-600  p-2">
-                <div class="h-full w-full hover:cursor-pointer"></div>
+            <div class="rounded-lg h-52 max-h-full border border-blue-600  p-3">
+                <div class="h-full w-full">
+                    <div class="team-card-content">
+                        <div class="w-[270px] flex items-center justify-center mx-2">
+                            <img src="https://github.com/AnderVnq.png" alt="dni" srcset="">
+                        </div>
+                        <div class="w-full h-full flex flex-col md:justify-between ">
+                            <div class="flex items-start justify-between">
+                                <div class="flex gap-y-2 flex-col items-start mx-4 mt-2justify-center">
+                                    <h2 class="text-xl text-slate-300 capitalize">{{jugador.nombre}} {{jugador.apellido_pat}} </h2>
+                                    <h3 class="text-sm text-slate-400 capitalize">{{jugador.posicion_jugador}}</h3>
+                                    <h3 class="text-sm text-slate-400">{{jugador.fecha_nacimiento}} 📅</h3>
+                                </div>   
+                                <div class="flex flex-col py-3 px-4 bg-indigo-500 rounded-lg items-center">
+                                    <h4 class="font-medium capitalize text-xs">goles</h4>
+                                    <h4 class="font-medium text-sm">1</h4>
+                                </div>                               
+                            </div>
+
+                            <div class="flex gap-8 justify-center items-center mt-5">
+                                <div class="flex flex-col gap-y-1 min-h-8  py-1 px-6 rounded-lg bg-neutral-900 justify-center items-center">
+                                    <p class="text-xs pt-1 text-slate-400">Partidos</p>
+                                    <p class="font-medium text-sm text-slate-300">1</p>
+                                </div>
+                                <div class="flex flex-col gap-y-1 min-h-8  py-1 px-6 rounded-lg bg-neutral-900 justify-center items-center">
+                                    <p class="text-xs pt-1 text-slate-400">Amarillas</p>
+                                    <p class="font-medium text-sm text-slate-300">1</p>
+                                </div>
+                                <div class="flex flex-col gap-y-1 min-h-8  py-1 px-6 rounded-lg bg-neutral-900 justify-center items-center">
+                                    <p class="text-xs pt-1 text-slate-400">Rojas</p>
+                                    <p class="font-medium text-sm text-slate-300">1</p>
+                                </div>
+                            </div>                            
+                        </div>
+                        
+                    </div>
+                </div>
             </div>
             
         }

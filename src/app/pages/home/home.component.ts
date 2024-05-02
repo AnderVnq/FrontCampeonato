@@ -42,12 +42,9 @@ export class HomeComponent {
       }
     )
 
-    setTimeout(() => {
-      this.loading=true
-      console.log(this.loading);
-      
-    },2000);
-    
+
+    this.loading=true
+
   }
 
 }
