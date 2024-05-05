@@ -1,0 +1,40 @@
+@if (dataSource)
+{
+    <div class="mx-5 rounded-lg mt-10 text-center">  
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-style table-bordered text-center">
+            <ng-container matColumnDef="Nombre">
+                <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="Delegado">
+                <th mat-header-cell *matHeaderCellDef> Delegado </th>
+                <td mat-cell *matCellDef="let element"> {{element.delegado}} </td>
+            </ng-container>
+        
+            <!-- Weight Column -->
+            <ng-container matColumnDef="Foto_Delegado">
+                <th mat-header-cell *matHeaderCellDef> Foto Equipo </th>
+                <td mat-cell *matCellDef="let element"> {{element.foto_delegado ?element.foto_delegado :'Sin foto' }}</td>
+            </ng-container>
+        
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="Logo_Equipo">
+                <th mat-header-cell *matHeaderCellDef> Logo Equipo </th>
+                <td mat-cell *matCellDef="let element"> {{element.logo_equipo?element.logo_equipo:'-'}} </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        
+    </div>
+}
+@else {
+    <div>
+        No hay data
+    </div>
+}
+  
+  

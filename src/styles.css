@@ -30,3 +30,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     justify-content: flex-start;
     width: 100%;
 }
+
+.mat-table::ng-deep {
+    background-color: white;
+}
