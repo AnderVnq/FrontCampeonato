@@ -1,35 +1,63 @@
 @if (dataSource)
 {
-    <div class="mx-5 rounded-lg mt-10 text-center">  
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-style table-bordered text-center">
-            <ng-container matColumnDef="Nombre">
-                <th mat-header-cell *matHeaderCellDef> Nombre </th>
-                <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
-            </ng-container>
-        
-            <!-- Name Column -->
-            <ng-container matColumnDef="Delegado">
-                <th mat-header-cell *matHeaderCellDef> Delegado </th>
-                <td mat-cell *matCellDef="let element"> {{element.delegado}} </td>
-            </ng-container>
-        
-            <!-- Weight Column -->
-            <ng-container matColumnDef="Foto_Delegado">
-                <th mat-header-cell *matHeaderCellDef> Foto Equipo </th>
-                <td mat-cell *matCellDef="let element"> {{element.foto_delegado ?element.foto_delegado :'Sin foto' }}</td>
-            </ng-container>
-        
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="Logo_Equipo">
-                <th mat-header-cell *matHeaderCellDef> Logo Equipo </th>
-                <td mat-cell *matCellDef="let element"> {{element.logo_equipo?element.logo_equipo:'-'}} </td>
-            </ng-container>
-        
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-        
-    </div>
+
+    <div class=" mx-3 h-3/4 mb-14">
+
+        <div class="px-6 py-4 mb-6 bg-slate-950 rounded-lg">
+          <!-- Encabezado del dashboard -->
+          <div class="pb-6">
+            <h1 class="text-3xl font-semibold text-slate-300">Dashboard de Equipos</h1>
+            <p class="mt-2 text-sm text-slate-400">Administra Aquí la Información de los Equipos</p>
+          </div>
+          <!-- Barra de búsqueda y botón para crear conductor -->
+          <div class="flex justify-between items-center mb-2">
+            <div class="mb-12">
+              <a routerLink="/dashboard/conductor" class=" hover:cursor-pointer bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded">
+                Crear Nuevo Equipo
+              </a>
+            </div>
+          </div>
+        </div>
+        <table mat-table [dataSource]="dataSource" class="rounded overflow-hidden remove-relative">
+          <ng-container matColumnDef="id" class="remove-relative">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="Nombre"  class="remove-relative">
+            <th mat-header-cell *matHeaderCellDef> Dni </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Delegado" class="remove-relative">
+            <th mat-header-cell *matHeaderCellDef> Licencia </th>
+            <td mat-cell *matCellDef="let element"> {{element.delegado}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Foto_Delegado" class="remove-relative">
+            <th mat-header-cell *matHeaderCellDef> Foto Delegado </th>
+            <td mat-cell *matCellDef="let element"> {{element.foto_delegado? element.foto_delegado:'-' }} </td>
+          </ng-container>
+          <ng-container matColumnDef="Logo_Equipo" class="remove-relative">
+            <th mat-header-cell *matHeaderCellDef> Logo Equipo</th>
+            <td mat-cell *matCellDef="let element"> {{element.logo_equipo? element.logo_equipo:'-' }} </td>
+          </ng-container>
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-icon-button color="primary" (click)="gelou(element)">
+                <mat-icon>visibility</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="gelou(element)">
+                <mat-icon>delete</mat-icon>
+              </button>
+              <button mat-icon-button color="accent" (click)="gelou(element)">
+                <mat-icon>update</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>      
+      </div>
 }
 @else {
     <div>
