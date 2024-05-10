@@ -8,6 +8,7 @@ import { EquiposComponent } from './pages/equipos/equipos.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DashEquipoComponent } from './components/dash-equipo/dash-equipo.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { DashJugadoresComponent } from './components/dash-jugadores/dash-jugadores.component';
 
 export const routes: Routes = [
     {
@@ -39,8 +40,12 @@ export const routes: Routes = [
             title:'Gestion Equipos',
             children:[
                 {
-                path:'equipos',pathMatch:'full',
-                component:DashEquipoComponent 
+                    path:'equipos',pathMatch:'full',
+                    component:DashEquipoComponent 
+                },
+                {
+                    path:'jugadores',
+                    component:DashJugadoresComponent
                 }
             ]
     },

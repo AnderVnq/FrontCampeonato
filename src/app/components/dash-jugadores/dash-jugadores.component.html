@@ -1,1 +1,69 @@
-<p>dash-jugadores works!</p>
+@if (dataSource)
+{
+
+    <div class=" mx-3 h-3/4 mb-14">
+
+        <div class="px-6 py-4 mb-6 bg-slate-950 rounded-lg">
+          <!-- Encabezado del dashboard -->
+          <div class="pb-6">
+            <h1 class="text-3xl font-semibold text-slate-300">Dashboard de Jugadores</h1>
+            <p class="mt-2 text-sm text-slate-400">Administra Aquí la Información de los Jugadores</p>
+          </div>
+          <div class="flex justify-between items-center mb-2">
+            <div class="mb-12">
+              <a routerLink="/dashboard/conductor" class=" hover:cursor-pointer bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded">
+                Crear Nuevo Jugador
+              </a>
+            </div>
+          </div>
+        </div>
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z6 rounded-lg">
+            <ng-container matColumnDef="id">
+              <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="nombre">
+              <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="apellido_paterno">
+              <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.apellidos_pat}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="apellido_materno">
+                <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.apellidos_mat}}</mat-cell>
+              </ng-container>
+
+            <ng-container matColumnDef="equipo">
+              <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.fecha_nacimiento}} </mat-cell>
+            </ng-container>
+          
+            <ng-container matColumnDef="imagen_dni">
+                <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.img_dni || 'sin imagen'}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="posicion_jugador">
+                <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.posicion_jugador}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="fecha_nacimiento">
+                <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.equipo}} </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>   
+    </div>
+}
+@else {
+    <div>
+        No hay data
+    </div>
+}
